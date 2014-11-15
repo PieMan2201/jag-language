@@ -18,8 +18,8 @@ status = 'alpha'
 acronym_def = "Jag Allows Greatness"
 year = '2014'
 creators = [
-	'Ishan Kamat',
-	'Dhilan Lahoti'
+	'name',
+	'name'
 ]
 
 #Updates
