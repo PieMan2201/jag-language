@@ -1,0 +1,46 @@
+set greeting to "Hello, world!"
+speak greeting
+set intro to "My name is Jag, the simple and easy-to-understand programming language!"
+speak intro
+set incomplete to 1
+while incomplete equals 1
+	speak "I have if statements and can take input!"
+	speak "Note: if you want to input a string, you need to put quotation marks (") around it. Otherwise I'll think it's a variable name or a number!"
+	record "Say something: " to var1
+	record "Say something else: " to var2
+	speak var1
+	speak var2
+	if var1 equals var2
+		speak "You typed the same thing twice!"
+	end if
+	if var1 does not equal var2
+		speak "Those answers were different!"
+	end if
+	speak "I can set variables, do while loops, and compute as well!"
+	set var3 to 0
+	while var3 is less than 10
+		speak "In a loop now!"
+		set var3 to var3 + 1
+		speak var3
+	end loop
+	speak "And of course, I can speak! I'm doing that right now!"
+	speak "I have some less useful features as well, like sleeping and clearing the screen."
+	sleep 2
+	clear
+$	Look at me! I'm a comment! WHEE!
+	speak "I've got some conversions too! I can change things from lowercase to uppercase, for example."
+	record "Say something lowercase! " to lower
+	make lower be lower uppercase
+	speak lower
+	speak "Finally, I can pause. Going to do that now."
+	pause
+	speak "Thanks for reading! Do you want to read it again? ["y"/"n"]"
+	record repeat
+	if repeat equals "y"
+		set incomplete to 1
+	end if
+	if repeat equals "n"
+		set incomplete to 0
+	end if
+end loop
+speak "Have fun coding in Jag!"
