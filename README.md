@@ -74,7 +74,7 @@ make var1 be 202 string
 #var1 is now "202"
 ```
 
-There are some functions in Jag which you might not need to use very often, like `clear`,`pause`, and `sleep`. 
+There are some functions in Jag which you might not need to use very often, like `clear`,  `pause`, and  `sleep`. 
 
 ```
 clear
@@ -93,7 +93,7 @@ sleep 10.5
 
 Jag has `if` statements and comparisons.  
 
-These comparisons are `equals`, `does not equal`, `is greater than`, and `is less than`.
+These comparisons are `equals`,  `does not equal`,  `is greater than`, and  `is less than`.
 
 Use them like this:
 
