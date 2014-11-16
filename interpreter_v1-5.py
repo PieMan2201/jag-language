@@ -6,7 +6,6 @@ from random import choice, randrange
 #Jag (Jag Allows Greatness) is a programming language made in Python.
 #It is very simple, and it uses .jag files to store programs.
 #The syntax is designed to look like English and can be understood easily.
-#Created by Ishan Kamat in 2014
 
 #TODO: 
 #	Add lists (data type, add/remove, indexes)
@@ -19,8 +18,8 @@ status = 'alpha'
 acronym_def = "Jag Allows Greatness"
 year = '2014'
 creators = [
-	'Ishan Kamat',
-	'Dhilan Lahoti'
+	'name',
+	'name'
 ]
 
 #Updates
