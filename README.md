@@ -134,7 +134,7 @@ While loops use the same comparisons that if statements do.
 There are some things that were shown in the examples but not described. If you didn't understand them, here they are:
 
 * Jag can do math with numbers and variables with number values (addition, subtraction, multiplication, and division).
-* When putting code in a while loop or if statement, you must indent the code by one (1) tab.
+* When putting code in a while loop or if statement, you must indent the code so that it is one (1) tab farther to the right than the beginning of the loop or statement.
 * Jag only uses floating points so beginners won't be confused by trying to divide 1 by 2 and getting 0.
 
 
