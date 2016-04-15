@@ -3,7 +3,6 @@ import os
 from time import sleep
 from urllib2 import urlopen
 from random import choice, randint
-from subprocess import call
 #Jag (Jag Allows Greatness) is a programming language made in Python.
 #It is very simple, and it uses .jag files to store programs.
 #The syntax is designed to look like English and can be understood easily.
