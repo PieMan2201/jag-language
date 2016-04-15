@@ -1,7 +1,7 @@
 from sys import argv
 import os
 from time import sleep
-from urllib2 import urlopen
+from urllib.request import urlopen
 from random import choice, randint
 #Jag (Jag Allows Greatness) is a programming language made in Python.
 #It is very simple, and it uses .jag files to store programs.
@@ -25,7 +25,7 @@ creators = [
 
 def options():
 	file = open("jag.conf")
-	lines = file.read().split("\r\n")
+	lines = file.read().split("\n")
 	for line in lines:
 		if "outp" in line:
 			outp_setting = int(line[-1:])
@@ -44,8 +44,8 @@ def find_updates(url):
 	update = urlopen(url)
 	up_list = update.read().split()
 	if float(up_list[0]) > float(version):
-		print "\n----\nUPDATE AVAILABLE: version %s (Download @ %s).\n----\n" % (up_list[0], up_list[1])
-		choice = raw_input("Would you like to download and install this update? [y/n]: ")
+		print("\n----\nUPDATE AVAILABLE: version %s (Download @ %s).\n----\n" % (up_list[0], up_list[1]))
+		choice = input("Would you like to download and install this update? [y/n]: ")
 		sleep(2)
 
 def check_updates():
@@ -240,7 +240,7 @@ def find_type(term):
 
 	if term[0] == '"' and term[-1:] == '"':
 		return 0
-	elif term in variables.keys():
+	elif term in list(variables.keys()):
 		return 1
 	else:
 		try:
@@ -305,7 +305,7 @@ def set(term1,term2):
 #				print set_commands.index(command)
 				if command == set_commands[0]:
 					message = check_type(term2[7:])
-					term2 = raw_input(str(message))
+					term2 = input(str(message))
 					term2 = check_type(term2)
 				elif command == set_commands[1]:
 					variable = term2.split()[0]
@@ -436,7 +436,7 @@ def check_line(line):
 				if not t_or_f:
 					in_compare = True
 		if not compared:
-			print "UNCOMPARED: " + newline
+			print("UNCOMPARED: " + newline)
 			in_compare = True
 	elif commands[2] == line[:6]:
 		old_line = line
@@ -456,12 +456,12 @@ def check_line(line):
 			prefix = "Output: "
 		if line_setting:
 			suffix = " (Line %s)" % str(line_counter + 1)
-		print prefix + str(check_type(line[6:])) + suffix
+		print(prefix + str(check_type(line[6:])) + suffix)
 	elif commands[6] == line[:5]:
-		raw_input('Press enter to continue . . .')
+		input('Press enter to continue . . .')
 	elif commands[7] == line[:5]:
 		if cler_setting:
-			print "Clearing screen..."
+			print("Clearing screen...")
 			sleep(0.75)
 		clear()
 	elif commands[8] == line[:6]:
@@ -501,7 +501,7 @@ def run_credits():
 			difference = length - new_length
 			writing = "-------- \n" + writing + "\n" * difference + "-------- \n"
 			clear()
-			print writing
+			print(writing)
 			sleep(1)
 			credit_lines.pop(0)
 		except:
@@ -513,15 +513,15 @@ try:
 	file = open(argv[1])
 except:
 	if len(argv) == 1:
-		print "Please provide a file!"
+		print("Please provide a file!")
 	else:
-		print "Invalid file!"
+		print("Invalid file!")
 	raise SystemExit
 	
 lines = file.read().split('\n')
 
 if lines == ['']:
-	print "It seems you've sent me an empty file. \nIf you send me an empty file, I'm supposed to play the credits. \nSo, here they are!"
+	print("It seems you've sent me an empty file. \nIf you send me an empty file, I'm supposed to play the credits. \nSo, here they are!")
 	sleep(4)
 	run_credits()
 	raise SystemExit
@@ -535,12 +535,12 @@ def main():
 			go_crazy()
 			raise IndexError
 	except IndexError:
-		print "\nReached end (Line %s). Quitting..." % str(line_counter + 1)
+		print("\nReached end (Line %s). Quitting..." % str(line_counter + 1))
 		if vars_setting:
-			print "---- \nVARS: \n"
+			print("---- \nVARS: \n")
 			for key in variables:
-				print key + " : " + str(variables[key])
-			print ""
+				print(key + " : " + str(variables[key]))
+			print("")
 		raise SystemExit
 	if "%" != line[:3]:
 		if not in_compare:
